@@ -110,6 +110,29 @@ Es un funcionario de carrera, graduado en la Academia Militar de Venezuela en el
     </div>
     <p style="font-size: 0.8em; margin-top: 15px;">&copy; 2026 Todos los derechos reservados.</p>
   </footer>
+<!-- Botón de Compartir -->
+<div style="text-align: center; padding: 20px; margin-top: 30px;">
+  <button id="btnCompartir" style="background-color: #000; color: #0047AB; border: 2px solid #FFD700; padding: 10px 25px; font-weight: bold; cursor: pointer; border-radius: 50px; box-shadow: 0 0 10px #FFD700; text-transform: uppercase;">
+    📤 Compartir Contenido</button>
+</div>
+
+<script>
+  const shareBtn = document.getElementById('btnCompartir');
+
+  shareBtn.addEventListener('click', () => {
+    if (navigator.share) {
+      navigator.share({
+        title: 'Emociones Radio',
+        text: 'Escucha la mejor música del recuerdo en Emociones Radio.',
+        url: 'https://emociones-radio.uk'
+      })
+      .then(() => console.log('Compartido con éxito'))
+      .catch((error) => console.log('Error al compartir', error));
+    } else {
+      alert("Tu navegador no soporta la función de compartir directamente. Copia el enlace: https://emociones-radio.uk");
+    }
+  });
+</script>
 
 </body>
 </html>
