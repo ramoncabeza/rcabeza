@@ -4,17 +4,17 @@
   "description": "Perfil profesional del Cnel. Ramón Cabeza, experto en seguridad ciudadana.",
   "icons": [
     {
-      "src": "favicon.ico",
+      "src": "rc.ico",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },
     {
-      "src": "RC-192.png",
+      "src": "rc-192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "RC-512.png",
+      "src": "rc-512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
