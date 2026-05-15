@@ -30,7 +30,7 @@
   <!-- Scripts obligatorios para AMP y Carrusel -->
   <script async src="https://cdn.ampproject.org/v0.js"></script>
   <script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
-
+  <script async custom-element="amp-social-share" src="https://cdn.ampproject.org/v0/amp-social-share-0.1.js"></script>
   <style amp-custom>
     body { font-family: sans-serif; line-height: 1.5; color: #333; margin: 0; background: #fafafa; }
     .header-box { background: #1a1a1a; color: #fff; text-align: center; padding: 40px 20px; }
@@ -39,6 +39,20 @@
     .carousel-wrap { margin: 20px 0; background: #eee; }
     footer { background: #f0f0f0; padding: 30px; text-align: center; border-top: 1px solid #ddd; }
     .links a { display: inline-block; margin: 5px 15px; color: #007bff; text-decoration: none; font-weight: bold; }
+    amp-social-share[type="system"] {
+      background-image: none;       /* Elimina el símbolo por defecto */
+      background-color: #007bff;   /* Color de fondo del botón (puedes cambiarlo) */
+      color: #ffffff;              /* Color del texto en blanco */
+      font-family: sans-serif;
+      font-size: 10px;
+      font-weight: bold;
+      width: auto;                 /* Permite que el botón se estire según el texto */
+      padding: 0 30px;             /* Espaciado interno horizontal */
+      border-radius: 4px;          /* Bordes ligeramente redondeados */
+      line-height: 44px;           /* Centra el texto verticalmente (coincide con la altura por defecto) */
+      text-align: center;
+      text-decoration: none;
+    }
   </style>
 
   <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
@@ -115,29 +129,14 @@ Es un funcionario de carrera, graduado en la Academia Militar de Venezuela en el
     </div>
     <p style="font-size: 0.8em; margin-top: 15px;">&copy; 2026 Todos los derechos reservados.</p>
   </footer>
-<!-- Botón de Compartir -->
-<div style="text-align: center; padding: 20px; margin-top: 30px;">
-  <button id="btnCompartir" style="background-color: #000; color: #0047AB; border: 2px solid #FFD700; padding: 10px 25px; font-weight: bold; cursor: pointer; border-radius: 50px; box-shadow: 0 0 10px #FFD700; text-transform: uppercase;">
-    📤 Compartir Contenido</button>
-</div>
-
-<script>
-  const shareBtn = document.getElementById('btnCompartir');
-
-  shareBtn.addEventListener('click', () => {
-    if (navigator.share) {
-      navigator.share({
-        title: 'Ramón Cabeza',
-        text: 'Ramón Cabeza | Experto en Seguridad Ciudadana.',
-        url: 'https://ramoncabeza.github.io/rcabeza/'
-      })
-      .then(() => console.log('Compartido con éxito'))
-      .catch((error) => console.log('Error al compartir', error));
-    } else {
-      alert("Tu navegador no soporta la función de compartir directamente. Copia el enlace: https://ramoncabeza.github.io/rcabeza/");
-    }
-  });
-</script>
-
+<!-- Botón con la palabra COMPARTIR en su interior -->
+  <amp-social-share 
+    id="btnCompartir"
+    type="system"
+    data-param-title="Ramón Cabeza"
+    data-param-text="Ramón Cabeza | Experto en Seguridad Ciudadana."
+    data-param-url="https://ramoncabeza.github.io/rcabeza/">
+    COMPARTIR
+  </amp-social-share>
 </body>
 </html>
